@@ -54,7 +54,7 @@ echo '
            echo ' </div>
         </div>
     </nav>';
-    // echo '  '.$_SESSION['login_email'];.' ';
+    
 
 ?>
 <?php

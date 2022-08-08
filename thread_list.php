@@ -87,7 +87,7 @@ echo'
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             $th_title = $_POST['problem_title'];
             $th_desc = $_POST['textarea'];
-            $th_sql = "INSERT INTO `thread_list` ( `thread_title`, `thread_desc`, `thread_time`, `thread_user_id`, `thread_cat_id`) VALUES ('$th_title', '$th_desc', current_timestamp(), '0', '$cat_id');" ;
+            $th_sql = "INSERT INTO `thread_list` ( `thread_title`, `thread_desc`, `thread_time`, `thread_user_id`, `thread_cat_id`) VALUES ('$th_title', '$th_desc', current_timestamp(), '$_SESSION[login_email]', '$cat_id');" ;
             $th_result = mysqli_query($conn,$th_sql);
             echo "<script>window.location.href='http://localhost/php_forum/thread_list.php?cat_id=".$cat_id."'</script>";
         }
@@ -117,12 +117,15 @@ echo'
                 $thread_id = $row['thread_id'];
                 $thread_title = $row['thread_title'];
                 $thread_desc = $row['thread_desc'];
+                $thread_time = $row['thread_time'];
+                $thread_user = $row['thread_user_id'];
 
     echo'
     <div class="container mt-2 mb-5">    
         <div class="media mt-3">
             <img src="user.png" width="45px" class="mr-3">
             <div class="media-body">
+            <h6 class="fw-bold ">'.$thread_user .' at '. $thread_time.'</h6>
             <h6><a class="text-decoration-none text-dark" href="thread.php?id='. $thread_id .'">'.$thread_title.'</a></h5>
             <p><a class="text-decoration-none text-dark" href="thread.php?id='. $thread_id .'">'.$thread_desc.'</a></p>
             </div>

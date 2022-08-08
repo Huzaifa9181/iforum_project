@@ -85,10 +85,12 @@ echo'
 ?>
 
     <?php
+
+    // session_start();
     
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $comment = $_POST['comment'];
-            $comment_sql = "INSERT INTO `comments` (`comment_user`, `comment_content`, `thread_id`, `time`) VALUES ( '0', '$comment', '$th_id', current_timestamp());";
+            $comment_sql = "INSERT INTO `comments` (`comment_user`, `comment_content`, `thread_id`, `time`) VALUES ( '$_SESSION[login_email]', '$comment', '$th_id', current_timestamp());";
             $comment_result = mysqli_query($conn,$comment_sql); 
             echo "<script>window.location.href='http://localhost/php_forum/thread.php?id=".$th_id."'</script>";
         }
@@ -117,12 +119,14 @@ echo'
 
         $comment_content = $row['comment_content'];
         $comment_time = $row['time'];
+        $comment_user = $row['comment_user'];
+
         echo'
         <div class="container mt-2 mb-5">    
         <div class="media mt-3">
             <img src="user.png" width="45px" class="mr-3">
             <div class="media-body">
-            <h6 class="fw-bold">Anonymous User at '. $comment_time.'</h6>
+            <h6 class="fw-bold">'.$comment_user .' at '. $comment_time.'</h6>
             <p class="com">'. $comment_content . '</p>
             </div>
         </div>
