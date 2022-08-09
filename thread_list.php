@@ -24,8 +24,8 @@
 <body>
 
     <?php
-        include 'components/nav.php';
         include 'components/database.php'; 
+        include 'components/nav.php';
     ?>
 
     <?php
@@ -87,6 +87,11 @@ echo'
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             $th_title = $_POST['problem_title'];
             $th_desc = $_POST['textarea'];
+            $th_title = str_replace("<","&lt;",$th_title);
+            $th_title = str_replace(">","&gt;",$th_title);
+            $th_desc = str_replace("<","&lt;",$th_desc);
+            $th_desc = str_replace(">","&gt;",$th_desc);
+            
             $th_sql = "INSERT INTO `thread_list` ( `thread_title`, `thread_desc`, `thread_time`, `thread_user_id`, `thread_cat_id`) VALUES ('$th_title', '$th_desc', current_timestamp(), '$_SESSION[login_email]', '$cat_id');" ;
             $th_result = mysqli_query($conn,$th_sql);
             echo "<script>window.location.href='http://localhost/php_forum/thread_list.php?cat_id=".$cat_id."'</script>";

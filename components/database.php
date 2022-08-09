@@ -1,6 +1,6 @@
 <?php
 
-$server = "localhost:3308";
+$server = "localhost";
 $username = "root";
 $password = "";
 $database = "iforum";

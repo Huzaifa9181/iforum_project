@@ -1,7 +1,29 @@
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+$(document).ready(function() {
+    $('#signUp').click(function() {
+        event.preventDefault();
+    });
+});
+
+$(document).ready(function() {
+    $('#logIn').click(function() {
+        event.preventDefault();
+    });
+});
+
+$(document).ready(function() {
+    $('#e2').click(function() {
+        event.preventDefault();
+    });
+});
+</script>
 
 <?php 
+include 'components/database.php'; 
 session_start();
-
+$sql = "SELECT `title`, `id` FROM `category` LIMIT 4;";
+$cat_result = mysqli_query($conn,$sql);
 
 echo '
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -20,13 +42,17 @@ echo '
                     </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        Top Categories
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">';
+                    while($assoc = mysqli_fetch_assoc($cat_result)){
+                        $c_id = $assoc['id'];
+
+                        echo '<li><a class="dropdown-item" href="http://localhost/php_forum/thread_list.php?cat_id='.$c_id.'">'.$assoc['title'].'</a></li>';
+                    };
+                      
+                    
+                    echo '
                     </ul>
                     </li>
                     <li class="nav-item">
@@ -34,8 +60,8 @@ echo '
                     </li>
                 </ul>';
                 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
-                    echo ' <form class="d-flex" role="search">
-                            <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
+                    echo ' <form class="d-flex"  method="get" action="search.php"  role="search">
+                            <input class="form-control me-2 " type="search" name="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success mx-2" type="submit" >Search</button>
                             <p class="text-white wel  mt-2 p-0 m-0 ">Welcome</p>
                             <p class="text-white mx-2 p-0 mt-2 m-0 my-0">'. $_SESSION['login_email'].'</p>
@@ -43,11 +69,11 @@ echo '
                         </form>';
 
                 }else{
-                    echo ' <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    echo ' <form class="d-flex" method="get" action="search.php" role="search">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
-                    <button class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">login</button>
-                    <button class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</button>
+                    <button class="btn btn-success mx-2" data-bs-toggle="modal" id="logIn" data-bs-target="#exampleModal">login</button>
+                    <button class="btn btn-success mx-2" data-bs-toggle="modal" id="signUp" data-bs-target="#signupModal">Signup</button>
                 </form>';
 
                 }

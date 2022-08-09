@@ -27,8 +27,8 @@
 <body>
 
     <?php
-        include 'components/nav.php';
         include 'components/database.php'; 
+        include 'components/nav.php';
     ?>
 
     <?php
@@ -90,6 +90,9 @@ echo'
     
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $comment = $_POST['comment'];
+            $comment = str_replace("<","&lt;",$comment);
+            $comment = str_replace(">","&gt;",$comment);
+            
             $comment_sql = "INSERT INTO `comments` (`comment_user`, `comment_content`, `thread_id`, `time`) VALUES ( '$_SESSION[login_email]', '$comment', '$th_id', current_timestamp());";
             $comment_result = mysqli_query($conn,$comment_sql); 
             echo "<script>window.location.href='http://localhost/php_forum/thread.php?id=".$th_id."'</script>";
@@ -97,7 +100,7 @@ echo'
         
     ?>
 
-    <div class="container mt-5 mb-5" style="padding-bottom: 110px;">
+    <div class="container mt-5 mb-5" >
         <h1 class="text-center mt-3 mb-5">Disscussion</h1>
     </div>
 

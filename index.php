@@ -14,8 +14,8 @@
 
 <body>
     <?php
-  include 'components/nav.php';
   include 'components/database.php';
+  include 'components/nav.php';
 ?>
     <div class="container-fluid mt-5 mb-5" style="margin-bottom: 165px !important;">
         <div class="row justify-content-center">
