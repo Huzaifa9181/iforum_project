@@ -60,7 +60,7 @@ echo'
            <form action="'. $_SERVER['REQUEST_URI'] .'" method="POST">
                <div class="mb-3">
                    <label for="title" class="form-label">Problem Title</label>
-                   <input type="text" class="form-control" id="title" name="problem_title">
+                   <input type="text" maxlength="255" class="form-control" id="title" name="problem_title">
                    <div class="form-text">Write your issues about the language.</div>
                    <label for="floatingTextarea2" class="mt-3">Ellaborate Your concern</label>
                    <textarea class="form-control mt-2" id="floatingTextarea2" name="textarea"

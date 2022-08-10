@@ -56,7 +56,7 @@ echo '
                     </ul>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                 </ul>';
                 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
@@ -67,7 +67,6 @@ echo '
                             <p class="text-white mx-2 p-0 mt-2 m-0 my-0">'. $_SESSION['login_email'].'</p>
                             <a href="/php_forum/components/logout.php" class="btn btn-success mx-2" >logout</a>
                         </form>';
-
                 }else{
                     echo ' <form class="d-flex" method="get" action="search.php" role="search">
                     <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">

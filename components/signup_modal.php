@@ -10,7 +10,7 @@
                 <form action="/php_forum/components/handle_signup.php" method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="signUp_email">
+                        <input type="email" maxlength="50" class="form-control" id="email" name="signUp_email">
                     </div>
                     <div class="mb-3">
                         <label for="pass" class="form-label">Password</label>
