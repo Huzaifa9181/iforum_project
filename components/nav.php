@@ -95,10 +95,28 @@ if(isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == true ){
     ';
 };
 
+if(isset($_GET['signup']) && $_GET['signup'] == 'false' ){
+    echo'
+        <div class="alert alert-danger mb-0 alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> Email is already exsist.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    ';
+};
+
 if(isset($_GET['not_match']) && $_GET['not_match'] == "false" ){
     echo'
         <div class="alert alert-danger mb-0 alert-dismissible fade show" role="alert">
             <strong>Error!</strong> Enter same password.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    ';
+};
+
+if(isset($_GET['admin']) && $_GET['admin'] == "false" ){
+    echo'
+        <div class="alert alert-danger mb-0 alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> Admin is already declared you are SignUp with User.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     ';

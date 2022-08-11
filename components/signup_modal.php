@@ -1,4 +1,3 @@
-
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -20,12 +19,20 @@
                         <label for="cpassword" class="form-label">Confirm Password</label>
                         <input type="password" class="form-control" id="cpassword" name="cpassword">
                     </div>
+                    <!-- <select required class="form-select" name="role" aria-label="Default select example">
+                        <option selected>Select Role</option>
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
+                        <option value="Employee" disabled>Employee</option>
+                    </select>
+                    <br>
+                    <br> -->
                     <button type="submit" class="btn btn-primary">Sign Up</button>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                
+
             </div>
         </div>
     </div>

@@ -9,8 +9,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $sql = "select * from `users` where user_email= '$user_email'";
     $result = mysqli_query($conn,$sql);
     $row = mysqli_num_rows($result);
-    if($row<0){
-        echo "useremail already exsist";
+    if($row>0){
+        header("location: /php_forum/index.php?signup=false");
+
     }else{
         if($user_pass == $user_cpass){
             $hash = password_hash($user_pass,PASSWORD_DEFAULT);

@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if($row == 1){
         $assoc = mysqli_fetch_assoc($result);
         if(password_verify($login_pass , $assoc['user_password'])){
-            header("location: /php_forum/index.php?login=true");
+            header("location: /php_forum/index.php?login=true&&user_id=". $assoc['id']."");
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['login_email'] = $login_email;
