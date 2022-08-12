@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2022 at 11:42 AM
+-- Generation Time: Aug 12, 2022 at 08:52 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -85,8 +85,19 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `user_email` varchar(50) NOT NULL,
   `user_password` varchar(255) NOT NULL,
-  `time` datetime NOT NULL DEFAULT current_timestamp()
+  `time` datetime NOT NULL DEFAULT current_timestamp(),
+  `role` enum('admin','user','employee') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_email`, `user_password`, `time`, `role`) VALUES
+(42, '000@gmail.com', '$2y$10$wWJnhx62B9mXIjVT3tuhAeLQorqnaIe3VFqMVTLOVgPvTbsaKMcVe', '2022-08-12 03:21:25', 'user'),
+(43, '111@gmail.com', '$2y$10$Pj0Sj2QtzY3XiCmDffP1XO1EL4KhagFW2/seahSWdrg2mzlj5X7gS', '2022-08-12 03:21:46', 'user'),
+(49, 'admin@gmail.com', '$2y$10$XB9qfreBZliEoId.p4PW.ePKq5Z6loEPIi4Onqa42pmMOSHHZ53yO', '2022-08-12 23:09:00', 'admin'),
+(50, '12@gmail.com', '$2y$10$KgfexW3c0vntumLbUv9kMuwB9X8OEYBWpIrQ1ZBybN2ik88BhYZmO', '2022-08-12 23:43:37', 'employee');
 
 --
 -- Indexes for dumped tables
@@ -143,7 +154,7 @@ ALTER TABLE `thread_list`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
