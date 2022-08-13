@@ -53,7 +53,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $sql="INSERT INTO `users` ( `user_email`, `user_password`, `time`, `role`) VALUES ( '$user_email', '$hash', current_timestamp() , '$user_role');";
                 $result = mysqli_query($conn,$sql);
                 header("location: /php_forum/index.php?signupsuccess=true");
-        
+                session_start();
+                $_SESSION['signUp'] = true;
+                $_SESSION['signUp_email'] = $user_email;
+                $_SESSION['signUp_pass'] = $user_pass;
             }else{
                 $error =  "false";
                 header("location: /php_forum/index.php?not_match=$error");
@@ -69,5 +72,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 }else{
     echo "some tecnical issue";
 }
+
+
+
+
+
 
 ?>

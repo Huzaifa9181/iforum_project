@@ -22,7 +22,7 @@ $(document).ready(function() {
 <?php 
 include 'components/database.php'; 
 session_start();
-$sql = "SELECT `title`, `id` FROM `category` LIMIT 4;";
+$sql = "SELECT `category`, `id` FROM `category` LIMIT 4;";
 $cat_result = mysqli_query($conn,$sql);
 $admin = false;
 $emp = false;
@@ -61,7 +61,11 @@ echo '
                     echo'
                     <li class="nav-item">
                     <a class="nav-link active" href="user.php">User</a>
-                    </li>';
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" href="post.php">Add Posts</a>
+                    </li>
+                    ';
                 }
             
                 echo'   <li class="nav-item dropdown ">
@@ -72,7 +76,7 @@ echo '
                 while($assoc = mysqli_fetch_assoc($cat_result)){
                     $c_id = $assoc['id'];
 
-                    echo '<li><a class="dropdown-item" href="http://localhost/php_forum/thread_list.php?cat_id='.$c_id.'">'.$assoc['title'].'</a></li>';
+                    echo '<li><a class="dropdown-item" href="http://localhost/php_forum/thread_list.php?cat_id='.$c_id.'">'.$assoc['category'].'</a></li>';
                 };
                     
                 
@@ -80,8 +84,13 @@ echo '
                 </ul>
                 </li>
                 <li class="nav-item">
+                <a class="nav-link active" href="news.php">News</a>
+                </li>
+                <li class="nav-item">
                 <a class="nav-link active" href="contact.php">Contact</a>
-                </li>';
+                </li>
+                ';
+                
                 if($emp){
                 echo'
                     <li class="nav-item">
@@ -125,6 +134,16 @@ if(isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == true ){
         </div>
     ';
 };
+
+if(isset($_GET['add_cat']) && $_GET['add_cat'] == true ){
+    echo'
+        <div class="alert alert-success mb-0 alert-dismissible fade show" role="alert">
+            <strong>Successfully!</strong> New Category is added.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    ';
+};
+
 
 if(isset($_GET['adminsuccess']) && $_GET['adminsuccess'] == true ){
     echo'

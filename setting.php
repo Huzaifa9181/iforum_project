@@ -59,15 +59,12 @@ include 'components/nav.php';
 
 </div>
 
-
-
-
-
-
-
-
-
-
+<!-- footer -->
+    <div class="container-fluid">
+        <div class="copy">
+            <p class="text-center text-white bg-dark mb-0">Copyright iForum 2022 | All right reserved </p>
+        </div>
+    </div>
 
 </body>
 

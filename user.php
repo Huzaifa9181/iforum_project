@@ -20,6 +20,10 @@
     th#act {
         padding-left: 55px !important;
     }
+
+    .main-cont {
+    padding-bottom: 239px;
+    }
     </style>
 
 
@@ -34,13 +38,13 @@
   include 'components/add_modal.php';
 ?>
 
-    <div class="container mb-5 mt-5">
+    <div class="container mb-5 mt-5 main-cont">
         <button class="btn btn-primary" data-bs-toggle='modal' data-bs-target='#addModal'>Add User</button>
         <table class="table" style="padding-top: 16px" id="myTable">
             <thead class="table-dark ">
                 <th>User Id</th>
                 <th>User Email</th>
-                <th>User Time</th>
+                <th>User SignUp Time</th>
                 <th>Role</th>
                 <th id="act">Action</th>
             </thead>
@@ -79,6 +83,13 @@
         $('#myTable').DataTable();
     });
     </script>
+
+<!-- footer -->
+<div class="container-fluid">
+        <div class="copy">
+            <p class="text-center text-white bg-dark mb-0">Copyright iForum 2022 | All right reserved </p>
+        </div>
+    </div>
 
 </body>
 

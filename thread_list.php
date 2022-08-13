@@ -36,14 +36,14 @@
   while($row = mysqli_fetch_assoc($result)){
 
     $id = $row['id'];
-    $title = $row['title'];
+    $category = $row['category'];
     $desc = $row['description'];
   }
   
 echo'
     <div class="container mt-5 mb-5">
         <div class="jumbotron p-3" style="background-color:#D3D3D3" >
-            <h1 class="display-4">Welcome To '.$title.' forum</h1>
+            <h1 class="display-4">Welcome To '.$category.' forum</h1>
             <p class="lead">'.$desc.'</p>
             <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
         </div>

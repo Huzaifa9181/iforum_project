@@ -39,7 +39,7 @@ if($sent == true){
 }
 ?>
 
-    <div class="container mt-5" style="margin-bottom: 160px;">
+    <div class="container mt-5" style="margin-bottom: 219px;">
     <h1 class="mt-3 mb-5 text-center">Contact For Feedback</h1>
         <form action="contact.php?submit=true" method="post">          
             <div class="mb-3">
