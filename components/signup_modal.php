@@ -9,17 +9,17 @@
                 <form action="/php_forum/components/handle_signup.php" method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" maxlength="50" class="form-control" id="email" name="signUp_email">
+                        <input type="email" maxlength="50" required  class="form-control" id="email" name="signUp_email">
                     </div>
                     <div class="mb-3">
                         <label for="pass" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="pass" name="pass">
+                        <input type="password" class="form-control" required  id="pass" name="pass">
                     </div>
                     <div class="mb-3">
                         <label for="cpassword" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="cpassword" name="cpassword">
+                        <input type="password" class="form-control" required  id="cpassword" name="cpassword">
                     </div>
-                    <select required class="form-select" name="role" aria-label="Default select example">
+                    <select class="form-select" name="role" aria-label="Default select example">
                         <option selected>Select Role</option>
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>

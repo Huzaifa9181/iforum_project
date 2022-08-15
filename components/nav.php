@@ -55,15 +55,18 @@ echo '
                 <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" href="#">About</a>
+                <a class="nav-link active" href="about.php">About</a>
                 </li>';
                 if($admin){
                     echo'
                     <li class="nav-item">
-                    <a class="nav-link active" href="user.php">User</a>
+                    <a class="nav-link active" href="user.php">Users</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link active" href="post.php">Add Posts</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" href="crud_post.php">Crud Posts</a>
                     </li>
                     ';
                 }
@@ -84,7 +87,7 @@ echo '
                 </ul>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" href="news.php">News</a>
+                <a class="nav-link active" href="latest_post.php">Latest Posts</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link active" href="contact.php">Contact</a>

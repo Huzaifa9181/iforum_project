@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2022 at 03:26 AM
+-- Generation Time: Aug 15, 2022 at 06:29 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -72,17 +72,19 @@ CREATE TABLE `post` (
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `category_id` varchar(50) NOT NULL,
-  `image` varchar(250) NOT NULL
+  `image` varchar(250) NOT NULL,
+  `time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`id`, `title`, `description`, `category_id`, `image`) VALUES
-(21, 'Javascript 1st tutorial was Uploaded', 'JavaScript, often abbreviated JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.', '1', 'js.jfif'),
-(22, 'Python 1st tutorial was uploaded', 'Python is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is dynamically-typed and garbage-collected. ', '2', 'python.jfif'),
-(23, 'Java 1st tutorial was uploaded', 'Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.', '5', 'java.png');
+INSERT INTO `post` (`id`, `title`, `description`, `category_id`, `image`, `time`) VALUES
+(21, 'Javascript 1st tutorial was Uploaded', 'JavaScript, often abbreviated JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.', '1', 'js.jfif', '2022-08-15 06:37:02'),
+(22, 'Python 1st tutorial was uploaded', 'Python is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is dynamically-typed and garbage-collected. ', '2', 'python.jfif', '2022-08-15 06:37:02'),
+(30, 'Php 1st tutorial ', 'PHP is a general-purpose scripting language geared toward web development. It was originally created by Danish-Canadian programmer Rasmus Lerdorf in 1994. The PHP reference implementation is now produced by The PHP Group', '3', 'php image.png', '2022-08-15 07:52:14'),
+(36, '1st tutorial of C#', 'C# is a general-purpose, multi-paradigm programming language. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines', '4', 'download.png', '2022-08-15 08:50:10');
 
 -- --------------------------------------------------------
 
@@ -120,7 +122,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `user_email`, `user_password`, `time`, `role`) VALUES
 (42, '000@gmail.com', '$2y$10$wWJnhx62B9mXIjVT3tuhAeLQorqnaIe3VFqMVTLOVgPvTbsaKMcVe', '2022-08-12 03:21:25', 'user'),
 (49, 'admin@gmail.com', '$2y$10$XB9qfreBZliEoId.p4PW.ePKq5Z6loEPIi4Onqa42pmMOSHHZ53yO', '2022-08-12 23:09:00', 'admin'),
-(50, '12@gmail.com', '$2y$10$KgfexW3c0vntumLbUv9kMuwB9X8OEYBWpIrQ1ZBybN2ik88BhYZmO', '2022-08-12 23:43:37', 'employee');
+(50, '12@gmail.com', '$2y$10$KgfexW3c0vntumLbUv9kMuwB9X8OEYBWpIrQ1ZBybN2ik88BhYZmO', '2022-08-12 23:43:37', 'employee'),
+(56, '11@11.com', '$2y$10$lO6DWwAigNsSG2X/73g62OQAtc97jUpsfygzuiMXD0.Ctp5F2yzVq', '2022-08-15 06:19:39', 'user'),
+(57, '12345@gmail.com', '$2y$10$c0lVAuT7S9z00tRjhcx.I.pNW0Tbb9UMKRjBRaxoJm1bKoja4gMVW', '2022-08-15 06:22:12', 'user');
 
 --
 -- Indexes for dumped tables
@@ -177,7 +181,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `thread_list`
@@ -189,7 +193,7 @@ ALTER TABLE `thread_list`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

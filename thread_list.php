@@ -53,6 +53,8 @@ echo'
    
    <?php
 
+// echo $_SERVER['REQUEST_URI']; work as a path
+
    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "true" ){
    echo'
    <div class="container">

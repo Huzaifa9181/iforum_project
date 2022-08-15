@@ -1,5 +1,5 @@
 <?php
-echo $_POST['role'];
+// echo $_POST['role'];
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     $user_email = $_POST['signUp_email'];
     $user_pass = $_POST['pass'];
@@ -70,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
     
 }else{
-    echo "some tecnical issue";
+    echo "system tecnical issue";
 }
 
 
