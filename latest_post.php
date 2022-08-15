@@ -10,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -22,8 +24,12 @@
      ?>
 
     <div class="container mt-5 mb-5">
-        <div class="row">
-          <?php
+        <form >
+        <!-- style="display: flex;" -->
+            <span><input class="form-control me-2 " type="search" name="search" id="search" placeholder="Search" aria-label="Search"></span>
+        </form>
+        <div class="row" id="data-store">
+            <?php
            while($row = mysqli_fetch_assoc($n_result)){
               echo'
                 <div class="col-md-3 mt-3 mb-3">
@@ -47,6 +53,24 @@
             <p class="text-center text-white bg-dark mb-0">Copyright iForum 2022 | All right reserved </p>
         </div>
     </div>
+
+    
+    <script>
+        $(document).ready(function(){
+            $("#search").on("keyup",function(){
+                var search_val = $(this).val();
+
+                $.ajax({
+                    url: "components/post_search.php",
+                    type: "POST",
+                    data: {search:search_val},
+                    success: function(data){
+                        $("#data-store").html(data);
+                    }
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>
