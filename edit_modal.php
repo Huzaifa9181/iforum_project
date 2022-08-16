@@ -11,16 +11,17 @@
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" maxlength="50" class="form-control" id="email" name="edit_email">
+                        <input type="text" name="hidd" id="hidden-inp">
                     </div>
                     <select required class="form-select" name="role" aria-label="Default select example">
                         <option selected>Select Role</option>
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>
-                        <option value="Employee" disabled>Employee</option>
+                        <option value="Employee" >Employee</option>
                     </select>
                     <br>
                     <br>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" id="sub-btn" class="btn btn-primary">Save</button>
                 </form>
             </div>
             <div class="modal-footer">

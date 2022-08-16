@@ -24,7 +24,7 @@
                         <option selected>Select Role</option>
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>
-                        <option value="Employee" disabled>Employee</option>
+                        <option value="Employee" >Employee</option>
                     </select>
                     <br>
                     <br>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2022 at 06:29 AM
+-- Generation Time: Aug 16, 2022 at 07:23 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -120,11 +120,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_email`, `user_password`, `time`, `role`) VALUES
-(42, '000@gmail.com', '$2y$10$wWJnhx62B9mXIjVT3tuhAeLQorqnaIe3VFqMVTLOVgPvTbsaKMcVe', '2022-08-12 03:21:25', 'user'),
-(49, 'admin@gmail.com', '$2y$10$XB9qfreBZliEoId.p4PW.ePKq5Z6loEPIi4Onqa42pmMOSHHZ53yO', '2022-08-12 23:09:00', 'admin'),
-(50, '12@gmail.com', '$2y$10$KgfexW3c0vntumLbUv9kMuwB9X8OEYBWpIrQ1ZBybN2ik88BhYZmO', '2022-08-12 23:43:37', 'employee'),
-(56, '11@11.com', '$2y$10$lO6DWwAigNsSG2X/73g62OQAtc97jUpsfygzuiMXD0.Ctp5F2yzVq', '2022-08-15 06:19:39', 'user'),
-(57, '12345@gmail.com', '$2y$10$c0lVAuT7S9z00tRjhcx.I.pNW0Tbb9UMKRjBRaxoJm1bKoja4gMVW', '2022-08-15 06:22:12', 'user');
+(69, 'admin@gmail.com', '$2y$10$1Mn4W3S6tt8O.gk8Hu.s7OrxS9jXFHUK5wLuyY0EL5123qI48Dbj6', '2022-08-16 22:09:49', 'admin'),
+(70, '11@gmail.com', '$2y$10$no6PJDo/Qhhq.acFrqa.Fe1/6Fv8mt1CWWxTe1KM/u.5g/0PTaCkO', '2022-08-16 22:09:59', 'employee'),
+(71, '11111@gmail.com', '$2y$10$n0ao5.Oyh.bcSHxf1eSR5.LAmJz6esdhKpF1lhNHnbmvgbqoSySdy', '2022-08-16 22:10:16', 'employee'),
+(72, 'hamza@gmail.com', '$2y$10$TuruMZQiQBEIy7HxQiCcB.FUm8zFL5OCWh/6P3MPEe.J2UIfn4Zoe', '2022-08-16 22:12:28', 'employee'),
+(73, 'huzaifaahmed9181@gmail.com', '$2y$10$v1/yo0x8udx/j8wxZF2xA.3GitUa/BZZiJ9PHuXJz1MQw9t6amcvO', '2022-08-16 22:19:23', 'employee');
 
 --
 -- Indexes for dumped tables
@@ -193,7 +193,7 @@ ALTER TABLE `thread_list`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

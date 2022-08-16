@@ -11,10 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
     <style>
     th#act {
@@ -41,6 +38,7 @@
     <div class="container mb-5 mt-5 main-cont">
         <button class="btn btn-primary" data-bs-toggle='modal' data-bs-target='#addModal'>Add User</button>
         <table class="table" style="padding-top: 16px" id="myTable">
+            
             <thead class="table-dark ">
                 <th>User Id</th>
                 <th>User Email</th>
@@ -52,7 +50,6 @@
                 <?php
                         $sql = "SELECT * FROM `users`";
                         $result = mysqli_query($conn,$sql);
-
                         $count = 0;
                         while($row = mysqli_fetch_assoc($result)){
                             $count = $count + 1;
@@ -61,7 +58,7 @@
                                 <td>" . $row['user_email'] . "</td>
                                 <td>" .$row['time'] . "</td>
                                 <td>" .$row['role']. "</td>
-                                <td><span class='p-2'><a href='?edit=".$row['id']."' class='btn btn-success' data-bs-toggle='modal' data-bs-target='#editModal'>Edit</a></span>||<span class='p-2'><a href='?delet=".$row['id']."' class='btn btn-danger'>Delet</a></span></td>
+                                <td><span class='p-2'><a data-id=".$row['id']." class='btn btn-success edit-btn ' data-bs-toggle='modal' data-bs-target='#editModal'>Edit</a></span>||<span class='p-2'><a href='?delet=".$row['id']."' class='btn btn-danger'>Delet</a></span></td>
                                 </tr>";
                             
                             echo "<br>";
@@ -78,18 +75,27 @@
             </tbody>
         </table>
     </div>
-    <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-    });
-    </script>
-
+   
 <!-- footer -->
 <div class="container-fluid">
         <div class="copy">
             <p class="text-center text-white bg-dark mb-0">Copyright iForum 2022 | All right reserved </p>
         </div>
     </div>
+
+    
+<script>
+    $(document).on("click",".edit-btn",function(){
+        var Id = $(this).data("id");
+        console.log(Id);
+        $("#hidden-inp").val(Id) ;
+        $("#hidden-inp").hide() ;
+        
+        
+    });
+
+    
+</script>
 
 </body>
 
